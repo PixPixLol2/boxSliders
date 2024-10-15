@@ -1,6 +1,8 @@
-import com.hamoid.*;
-VideoExport videoExport;
+/*import com.hamoid.*;
+VideoExport videoExport;*/
 String VIDEO_FILE_NAME = "cardSlider.mp4";
+
+PFont font;
 
 float xAxis = 0.00;
 float yAxis = 0.00;
@@ -13,21 +15,22 @@ void setup(){
   size(1280, 720, P3D);
   frameRate(FPS);
   
-  // Start recording
-  videoExport = new VideoExport(this, VIDEO_FILE_NAME);
+  font = loadFont("ComicSansMS-96.vlw");
+  
+  textFont(font, 96);
+  
+  /*videoExport = new VideoExport(this, VIDEO_FILE_NAME);
   videoExport.setFrameRate(FPS);
-  videoExport.startMovie();
+  videoExport.startMovie();*/
 }
 
 void draw(){
   background(#0033FF);
   lights();
   
-  // Draw sliders and rotating box
   drawSliders();
   
-  // Save frame for video
-  videoExport.saveFrame();
+  //videoExport.saveFrame();
 }
 
 void drawSliders(){
@@ -104,6 +107,6 @@ void mouseDragged(){
 
 void keyPressed(){
   if (key == 's') {
-    videoExport.endMovie();
+    //videoExport.endMovie();
   }
 }
